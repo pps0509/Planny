@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    flavorDimensions "version"
     defaultConfig {
         applicationId "com.planny"
         minSdkVersion 21
@@ -15,11 +17,72 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+
+        debug {
+            applicationIdSuffix ".dev"
+        }
+
+        staging {
+            debuggable true
+            applicationIdSuffix ".sta"
+        }
+
+        preproduction {
+            applicationIdSuffix ".pre"
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+        demo {
+
+            applicationIdSuffix ".demo"
+            versionNameSuffix ".-demo"
+        }
+
+        complete {
+
+            applicationIdSuffix ".complete"
+            versionNameSuffix "-complete"
+        }
+
+        special {
+
+            applicationIdSuffix ".special"
+            versionNameSuffix "-special"
+        }
+    }
+
+    sourceSets {
+        //main.java.srcDirs += 'src/main/kotlin'
+        main {
+            java.srcDirs = [
+                    'src/main/kotlin',
+                    'src/common/kotlin',
+                    'src/debug/kotlin',
+                    'src/release/kotlin',
+                    'src/staging/kotlin',
+                    'src/preproduction/kotlin',
+                    'src/debug/java',
+                    'src/release/java',
+                    'src/staging/java',
+                    'src/preproduction/java',
+                    'src/androidTest/java',
+                    'src/androidTest/kotlin',
+            ]
+        }
+
+    }
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+
 }
 
 dependencies {
@@ -29,4 +92,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
 }

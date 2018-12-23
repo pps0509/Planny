@@ -1,5 +1,14 @@
 *.iml
+.idea
 .gradle
+build/
+gradle*
+!gradle-plugins*
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+local.properties
+gen
 /local.properties
 /.idea/caches/build_file_checksums.ser
 /.idea/libraries
@@ -9,3 +18,5 @@
 /build
 /captures
 .externalNativeBuild
+
+
