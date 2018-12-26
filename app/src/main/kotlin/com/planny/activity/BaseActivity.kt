@@ -1,28 +1,29 @@
 package com.planny.activity
 
+import com.planny.R
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v4.app.FragmentActivity
 import android.util.Log
+import kotlinx.android.synthetic.main.activity_header.*
+
+//import kotlinx.android.synthetic.main.activity_header.*
+
+//import kotlinx.android.synthetic.main.activity_header.*
 
 
 abstract class BaseActivity : FragmentActivity() {
 
     protected abstract val tag: String
     protected abstract fun getLayout(): Int
-
-
-    /*
-    override fun onCreate(savedInstanceState: Bundle?,persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        Log.v(tag, "[ ON CREATE 2 ]")
-    }
-    */
+    protected abstract fun getActivityTitle() : Int
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayout())
+        activity_title.setText(getActivityTitle())
+        //activity_title.setText("Hello World")
         Log.v(tag, "[ ON CREATE ]")
     }
 

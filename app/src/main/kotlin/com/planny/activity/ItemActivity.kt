@@ -1,4 +1,11 @@
 package com.planny.activity
 
-abstract class ItemActivity : BaseActivity()
+import com.planny.R
+
+abstract class ItemActivity : BaseActivity() {
+    override fun getActivityTitle() = R.string.app_name
+
+
+}
+
 
