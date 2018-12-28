@@ -1,10 +1,14 @@
 package com.planny.activity
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentStatePagerAdapter
 import com.planny.R
 import com.planny.fragment.ItemsFragment
 import com.planny.fragment.ManualFragment
 import kotlinx.android.synthetic.main.activity_header.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
@@ -15,8 +19,27 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val fragment = ItemsFragment()
-        supportFragmentManager
+        pager.adapter = ViewPagerAdapter(supportFragmentManager)
+
+
+    }
+
+    private class ViewPagerAdapter(manager: FragmentManager) : FragmentStatePagerAdapter(manager) {
+
+        override fun getItem(position: Int): Fragment {
+
+            return ItemsFragment()
+        }
+
+        override fun getCount(): Int {
+            return 5
+        }
+    }
+}
+
+
+
+/*        supportFragmentManager
             .beginTransaction()
             .add(R.id.fragment_container, fragment)
             .commit()
@@ -29,12 +52,5 @@ class MainActivity : BaseActivity() {
                 .replace(R.id.fragment_container, userManualFrg)
                 .addToBackStack("User Manual")
                 .commit()
-        }
-    }
-
-}
-
-
-
-
+        }*/
 
