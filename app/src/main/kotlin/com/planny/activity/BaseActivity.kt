@@ -3,16 +3,14 @@ package com.planny.activity
 import com.planny.R
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.support.v4.app.FragmentActivity
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import kotlinx.android.synthetic.main.activity_header.*
-
-//import kotlinx.android.synthetic.main.activity_header.*
-
-//import kotlinx.android.synthetic.main.activity_header.*
+import android.view.Menu
+import kotlinx.android.synthetic.main.activity_main.*
 
 
-abstract class BaseActivity : FragmentActivity() {
+
+abstract class BaseActivity : AppCompatActivity() {
 
     protected abstract val tag: String
     protected abstract fun getLayout(): Int
@@ -22,8 +20,11 @@ abstract class BaseActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayout())
-        activity_title.setText(getActivityTitle())
+        setSupportActionBar(toolbar)
+
+        //activity_title.setText(getActivityTitle())
         //activity_title.setText("Hello World")
+
         Log.v(tag, "[ ON CREATE ]")
     }
 
@@ -32,6 +33,11 @@ abstract class BaseActivity : FragmentActivity() {
     override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onPostCreate(savedInstanceState, persistentState)
         Log.v(tag, "[ ON POST CREATE ]")
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
     }
 
     override fun onRestart() {

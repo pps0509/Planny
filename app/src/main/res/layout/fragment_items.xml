@@ -8,6 +8,14 @@
             android:layout_height="match_parent"
             android:background="@android:color/darker_gray"/>
 
+    <!-- Putting this code here shows another header line on app main. so don't put it -->
+ <!--   <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary"
+            android:elevation="4dp"/>
+-->
     <android.support.design.widget.FloatingActionButton
             android:id="@+id/new_item"
             android:layout_width="wrap_content"
