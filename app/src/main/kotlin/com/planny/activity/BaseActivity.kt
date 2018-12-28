@@ -22,9 +22,6 @@ abstract class BaseActivity : AppCompatActivity() {
         setContentView(getLayout())
         setSupportActionBar(toolbar)
 
-        //activity_title.setText(getActivityTitle())
-        //activity_title.setText("Hello World")
-
         Log.v(tag, "[ ON CREATE ]")
     }
 

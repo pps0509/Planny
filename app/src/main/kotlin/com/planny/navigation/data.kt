@@ -33,7 +33,7 @@ class NavigationDrawerAdapter (val ctx: Context, val items: List<NavigationDrawe
         }
 
         val item = items[position]
-        val title = view.findViewById<Button>(R.id.drawer_item)
+        val title = view?.findViewById<Button>(R.id.drawer_item)
         title.text = item.title
         title.setOnClickListener {
             item.onClick.run()

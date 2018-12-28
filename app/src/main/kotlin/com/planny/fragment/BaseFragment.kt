@@ -34,4 +34,6 @@ abstract class BaseFragment : Fragment () {
         Log.d(logTag, "[ ON DESTROY ]")
     }
 
+
+
 }
