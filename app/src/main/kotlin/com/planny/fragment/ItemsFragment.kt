@@ -73,8 +73,6 @@ class ItemsFragment : BaseFragment () {
         //val dateFormat = SimpleDateFormat("MMM dd YYYY", Locale.ENGLISH)
         //val timeFormat = SimpleDateFormat("MM:HH", Locale.ENGLISH)
 
-        var testStr : String = "FUCK OFF"
-
 
         val intent = Intent(context, TODOActivity::class.java)
         val data = Bundle()
@@ -87,7 +85,7 @@ class ItemsFragment : BaseFragment () {
 
         //startActivityForResult(intent, TODO_REQUEST)
 
-        data.putString(TODOActivity.strTesting, testStr)
+        //data.putString(TODOActivity.strTesting, testStr)
 
 
         startActivity(intent)

@@ -4,6 +4,8 @@ package com.planny.activity
 import android.os.Bundle
 import com.planny.R
 import kotlinx.android.synthetic.main.activity_todo.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class TODOActivity : ItemActivity() {
@@ -31,8 +33,18 @@ class TODOActivity : ItemActivity() {
         }
         */
         //val str = data?.getString(strTesting)
-        pick_date.text = "hello world"
-        pick_time.text = "hellow world"
+
+
+
+        val date = Date(System.currentTimeMillis())
+        val dateFormat = SimpleDateFormat("MMM dd YYYY", Locale.ENGLISH)
+        val timeFormat = SimpleDateFormat("MM:HH", Locale.ENGLISH)
+
+        val dateStr = dateFormat.format(date)
+        val timeStr = timeFormat.format(date)
+
+        pick_date.text = dateStr
+        pick_time.text = timeStr
     }
 
 }
