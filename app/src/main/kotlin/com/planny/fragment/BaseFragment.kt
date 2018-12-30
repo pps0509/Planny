@@ -10,6 +10,7 @@ import android.view.ViewGroup
 abstract class BaseFragment : Fragment () {
 
     protected abstract val logTag : String
+
     protected abstract fun getLayout() : Int
 
     override fun onCreateView (
