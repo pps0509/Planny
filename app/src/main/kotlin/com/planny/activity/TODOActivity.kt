@@ -4,6 +4,7 @@ package com.planny.activity
 import android.os.Bundle
 import com.planny.R
 import kotlinx.android.synthetic.main.activity_todo.*
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -37,8 +38,8 @@ class TODOActivity : ItemActivity() {
 
 
         val date = Date(System.currentTimeMillis())
-        val dateFormat = SimpleDateFormat("MMM dd YYYY", Locale.ENGLISH)
-        val timeFormat = SimpleDateFormat("MM:HH", Locale.ENGLISH)
+        val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+        val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
 
         val dateStr = dateFormat.format(date)
         val timeStr = timeFormat.format(date)
