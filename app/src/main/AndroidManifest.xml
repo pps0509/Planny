@@ -1,5 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.planny">
+
+
+
+
+
     <application
                  android:name=".Planny"
                  android:allowBackup="false"
