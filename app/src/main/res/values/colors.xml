@@ -2,12 +2,12 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <!--<color name="colorAccent">#D81B60</color>-->
 
     <color name="green">#11c403</color>
     <color name="green_dark">#0e8c05</color>
     <color name="white">#ffffff</color>
-    <color name="while_trans_40">#64ffffff</color>
+    <color name="white_trans_40">#64ffffff</color>
     <color name="black">#000000</color>
     <color name="black_trans_40">#64000000</color>
     <color name="grey_disabled">#d5d5d5</color>
@@ -21,5 +21,8 @@
     <color name="vermilion_dark">#c64145</color>
     <color name="vermilion_trans_40">#64f3494c</color>
     <color name="plum">#121e2a</color>
+
+    <color name="green2">#029788</color>
+    <color name="green_dark2">#005347</color>
 
 </resources>
