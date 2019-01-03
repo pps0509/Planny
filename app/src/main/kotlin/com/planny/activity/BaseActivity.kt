@@ -1,12 +1,15 @@
 package com.planny.activity
 
+import android.content.pm.PackageManager
 import com.planny.R
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.support.v4.app.ActivityCompat.requestPermissions
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 
 
@@ -16,6 +19,30 @@ abstract class BaseActivity : AppCompatActivity() {
     protected abstract fun getLayout(): Int
     protected abstract fun getActivityTitle() : Int
 
+    companion object {
+        val REQUEST_GPS = 0
+    }
+
+    private fun requestGpsPermission() {
+        requestPermissions(
+            this@BaseActivity,
+            arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION ),
+            REQUEST_GPS )
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+
+        if(requestCode == REQUEST_GPS) {
+            for(grantResult in grantResults){
+                if(grantResult == PackageManager.PERMISSION_GRANTED) {
+                    Log.i(tag, String.format(Locale.ENGLISH, " PERMISSION GRANTED [ %d ] Request Code : $requestCode"))
+                }
+                else {
+                    Log.e(tag, String.format(Locale.ENGLISH, "PERMISSION DENIED [ %d ] Request Code: $requestCode"))
+                }
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +50,8 @@ abstract class BaseActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         Log.v(tag, "[ ON CREATE ]")
+
+        requestGpsPermission ()
     }
 
 
